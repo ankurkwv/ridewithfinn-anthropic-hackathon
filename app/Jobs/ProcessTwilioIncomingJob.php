@@ -162,6 +162,6 @@ class ProcessTwilioIncomingJob implements ShouldQueue
         }
 
         $this->airtable->createExpense($input);
-        \Log::info('Created expense record! Finished.', $record);
+        \Log::info('Created expense record! Finished.');
     }
 }

@@ -53,7 +53,6 @@ class AnthropicClient
     public function sendRequest(string $endpoint, string $method = 'POST', array $data = []): array
     {
         try {
-            \Log::info($data);
             $response = $this->client->request($method, $endpoint, [
                 'json' => $data,
             ]);

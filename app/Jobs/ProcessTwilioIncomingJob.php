@@ -50,12 +50,16 @@ class ProcessTwilioIncomingJob implements ShouldQueue
         $this->airtable = $airtable;
         $this->promptLibrary = $promptLibrary;
         $this->twilio = $twilio;
+        \Log::info('Processing job picked & started...');
 
         $budgets = $this->airtable->getBudgets();
         $prompt = $this->promptLibrary->createExpensePrompt($budgets, $this->requestInput['message']);
 
+        \Log::info('Prompt prepared, sending to Anthropic...');
+
         $response = $this->getAIResponse($prompt);
 
+        \Log::info('AI response received...');
         $this->processAIResponse($response);
     }
 
@@ -120,6 +124,7 @@ class ProcessTwilioIncomingJob implements ShouldQueue
         preg_match('/<confirmation>(.*?)<\/confirmation>/s', $content['text'], $matches);
         $message = str_replace("\n", "", $matches[1]);
         $this->twilio->sendSMS($this->requestInput['from'], $message);
+        \Log::info('Sent SMS confirmation...');
     }
 
     /**
@@ -157,5 +162,6 @@ class ProcessTwilioIncomingJob implements ShouldQueue
         }
 
         $this->airtable->createExpense($input);
+        \Log::info('Created expense record! Finished.', $record);
     }
 }

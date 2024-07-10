@@ -26,12 +26,11 @@ class AirtableService
      * Create an expense record in Airtable.
      *
      * @param array $data
-     * @return array
+     * @return Collection
      */
-    public function createExpense(array $data): array
+    public function createExpense(array $data): Collection
     {
         $record = $this->prepareExpenseRecord($data);
-        Log::info('Creating expense record', $record);
         return Airtable::table(self::EXPENSE_TABLE)->create($record);
     }
 

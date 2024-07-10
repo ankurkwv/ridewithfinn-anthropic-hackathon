@@ -17,9 +17,11 @@ class TwilioController extends Controller
      */
     public function index(Request $request)
     {
+        \Log::info('Incoming Twilio request...');
         $data = $this->getMessageData($request);
 
         ProcessTwilioIncomingJob::dispatch($data);
+        \Log::info('Dispatched processing job...');
 
         return $this->safeTwilioResponse();
     }

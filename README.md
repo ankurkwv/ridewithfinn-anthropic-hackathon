@@ -19,6 +19,20 @@ If you wish to review the code, here are files I would point out to you.
 5. `TwilioController.php`: Code for immediate processing of the incoming webhook.
 6. `PromptLibrary.php`: My favorite idea of this project. I feel like we will all need a new method for storing and organizing prompts. This project led me to reuse Laravel's templating engine (Blade) to store & process prompts.
 
+## Environment Variables
+Be sure to fill out the following environment variables into your `.env` file.
+- `AIRTABLE_KEY`
+- `AIRTABLE_BASE`
+- `AIRTABLE_TABLE`
+
+- `AIRTABLE_TYPECAST`
+- `ANTHROPIC_API_KEY`
+
+- `TWILIO_ACCOUNT_SID`
+- `TWILIO_API_KEY`
+- `TWILIO_API_SECRET`
+- `TWILIO_PHONE_NUMBER`
+
 ## Future Ideas
 1. I want to, and have begun, to create a Postmark driver that will be used for forwarding in receipts for automatic storage and categorization.
 2. Our Airtable stores other information about our trip, and I want to enable Q&A and more via the SMS interface.

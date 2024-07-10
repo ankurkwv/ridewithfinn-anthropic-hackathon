@@ -8,7 +8,7 @@ This is a Laravel app – a PHP framework with the most extensive and thorough 
 
 A user texts a Twilio number a new request to store an expense, then the app will fetch possible budget categories from their own Budget Airtable and ask Anthropic's Claude Sonnet 3.5 model to classify and extract the information using Tools. Finally, the information is stored in Airtable and a confirmation text is sent to the user.
 
-<p align="center"><img src="https://bubbles-armadillo-5455.twil.io/assets/Anthropic%20Hackathon.png" width="400" alt="Flow Chart"></p>
+<p align="center"><img src="https://bubbles-armadillo-5455.twil.io/assets/Anthropic%20Hackathon.png" width="100%" alt="Flow Chart"></p>
 
 ## Important Files
 If you wish to review the code, here are files I would point out to you.
